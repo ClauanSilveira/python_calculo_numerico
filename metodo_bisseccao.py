@@ -3,6 +3,8 @@ import sympy as sp
 
 def bisseccao(f, a, b, TOL, N):
     i = 1
+    a1 = a
+    b1 = b
 
     if (f(a) * f(b) > 0):
         raise ValueError("A função tem o mesmo sinal nos pontos a e b")
@@ -37,6 +39,6 @@ def bisseccao(f, a, b, TOL, N):
     
 x = sp.Symbol('x') # Criando a variável simbólica 'x'
 funcao = 8 - 4.5 * (x - sp.sin(x)) # Função a ser calculada
-funcao_numerica = sp.lambdify(x, funcao) # Transformando a função simbólica em função com termos númericos para que possa ser calculado em   Python
+funcao_numerica = sp.lambdify(x, funcao) # Transformando a função simbólica em função com termos númericos para que possa ser calculado em Python
 
 bisseccao(funcao_numerica, 2, 3, 0.01, 100) # Chamando a função bisseccao e passando os parâmetros
